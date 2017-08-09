@@ -21,8 +21,9 @@ if (!is_null($events['events'])) {
 			    $CStaffID = str_replace($findstaff, '', $ctext);
 			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
 			    $getdetail = file_get_contents($url);
+			    $events2 = json_decode($getdetail, true);
 				
-			    $text = $getdetail['emp_code'].'/n'.$getdetail['emp_name'].'/n'.$getdetail['emp_email'];
+			    $text = $events2['emp_code'].'/n'.$events2['emp_name'].'/n'.$events2['emp_email'];
 			}
 			else if($ctext == 'สวัสดี'){
 				$text = 'หวัดดีว่าไงสึส';
