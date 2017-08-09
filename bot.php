@@ -1,24 +1,29 @@
 ser<?php
-$access_token = 'P5Qde5iLJeTX9rFoXFoZXbqQX5EsGhUpeYF3Srzbaks051jOntZpiYO08movDIP1BCF6n4EbiPZSTlgtVNEuZcNG1CINvBp22vSWAx7UR+5kKbk1ymZfJS71CYd538jx1GEX/rIclRVfwaqXo59tjwdB04t89/1O/w1cDnyilFU=';
+$access_token = 'nt1D33RgrPQI8u3h0IugdOafvlH2Um2UISC5rqsWeuTKw/oxWGQeTBNvsjSonOAB2oyFgdKASz5ZNDeZMejpv7Dg9eUTuWwJfILRIg1fyhZy/owcMjcnQbNV1DRwg/leJ5A0DMCTGuGWiw0OYIj80gdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
-$getgoldprice = file_get_contents('http://122.155.10.6/wisdomsbe/LineGoldPrice');
 // Parse JSON
 $events = json_decode($content, true);
-$events2 = json_decode($getgoldprice, true);
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['message']['text'] == 'userid') {
-			// Get text sent
-			//$text = "\n".$events2['text']."\nทองแท่งขาย : ".$events2['sale1']."\nทองแท่งซื้อ : ".$events2['buy1']."\nทองรูปประพรรณขาย : ".$events2['sale2']."\nทองรูปประพรรณซื้อ : ".$events2['buy2'];
-			// Get replyToken
-			
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			$replyToken = $event['replyToken'];
-      $userid = $event['source']['userId'];
-			$text = $userid;
+			
+			if($event['message']['text'] == 'สวัสดี'){
+				$text = 'หวัดดีว่าไงสึส';
+			}
+			else if($event['message']['text'] == 'นาวา'){
+				$text = 'เด็กเทพ รู้จักด้วยเหรอ??';
+			}
+			else{
+				$text = 'พิมพ์ไรมาวะกุไม่เข้าใจ..ห่า';
+			}
+			
+			
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
