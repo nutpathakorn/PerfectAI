@@ -17,7 +17,7 @@ if (!is_null($events['events'])) {
 			$findphone    = '@p';
 			$findlocation    = '@s';
 			$ctext = $event['message']['text'];
-			$luserid = $event['source']['userid']
+			$luserid = $event['source']['userid'];
 			$pos2 = stripos($ctext, $findstaff);
 			$pos3 = stripos($ctext, $finddetail);
 			$pos4 = stripos($ctext, $findphone);
@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 					$url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid;
 			    	$getdetail2 = file_get_contents($url2);
 			    	$ins1result = json_decode($getdetail2, true);
-			    	$ins1msg = $ins1result[0]['MSG']
+			    	$ins1msg = $ins1result[0]['MSG'];
 
 			    	if($ins1msg == 'OK'){
 
