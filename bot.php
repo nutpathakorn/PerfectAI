@@ -17,7 +17,12 @@ if (!is_null($events['events'])) {
 			$pos2 = stripos($ctext, $findstaff);
 			
 			if ($pos2 !== false) {
-			    $text = 'อยากทำงานแล้วเหรอ';
+			    //$text = 'อยากทำงานแล้วเหรอ';
+			    $CStaffID = str_replace($findstaff, '', $ctext);
+			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
+			    $getdetail = file_get_contents($url);
+				
+			    $text = $getdetail['emp_code'].'/n'.$getdetail['emp_name'].'/n'.$getdetail['emp_email'];
 			}
 			else if($ctext == 'สวัสดี'){
 				$text = 'หวัดดีว่าไงสึส';
