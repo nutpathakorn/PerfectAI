@@ -16,6 +16,8 @@ if (!is_null($events['events'])) {
 			$ctext = $event['message']['text'];
 			$pos2 = stripos($ctext, $findstaff);
 			
+			
+			
 			if ($pos2 !== false) {
 			    //$text = 'อยากทำงานแล้วเหรอ';
 			    $CStaffID = str_replace($findstaff, '', $ctext);
@@ -26,15 +28,21 @@ if (!is_null($events['events'])) {
 			    $text = $events2[0]['emp_code']."\n ".$events2[0]['emp_name']."\n ".$events2[0]['emp_email'];
 			    //$text = " - ".$events2[0]['emp_email'];
 			}
-			else if($ctext == 'สวัสดี'){
+			else {
+				
+				if($ctext == 'สวัสดี'){
 				$text = 'หวัดดีว่าไงสึส';
+				}
+				else if($ctext == 'นาวา'){
+					$text = 'เด็กเทพ รู้จักด้วยเหรอ??';
+				}
+				else{
+					$text = 'พิมพ์ไรมาวะกุไม่เข้าใจ..ห่า';
+				}
 			}
-			else if($ctext == 'นาวา'){
-				$text = 'เด็กเทพ รู้จักด้วยเหรอ??';
-			}
-			else{
-				$text = 'พิมพ์ไรมาวะกุไม่เข้าใจ..ห่า';
-			}
+				
+				
+				
 			
 			
 			// Build message to reply back
