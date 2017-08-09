@@ -24,9 +24,14 @@ if (!is_null($events['events'])) {
 			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
 			    $getdetail = file_get_contents($url);
 			    $events2 = json_decode($getdetail, true);
-				
-			    $text = $events2[0]['emp_code']."\n ".$events2[0]['emp_name']."\n ".$events2[0]['emp_email'];
-			    //$text = " - ".$events2[0]['emp_email'];
+			    $empcode = $events2[0]['emp_code'];
+				if(!empty($empcode)){
+				    $text = $events2[0]['emp_code']."\n ".$events2[0]['emp_name']."\n ".$events2[0]['emp_email'];
+				}
+				else{
+				    $text = "มั่วมาป่าววะ ไปดูรหัสตัวเองมาใหม่!!";
+				}
+			   
 			}
 			else {
 				
