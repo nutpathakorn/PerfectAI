@@ -23,8 +23,8 @@ if (!is_null($events['events'])) {
 			    $getdetail = file_get_contents($url);
 			    $events2 = json_decode($getdetail, true);
 				
-			    //$text = $events2['emp_code'].'/n'.$events2['emp_name'].'/n'.$events2['emp_email'];
-			    $text = $CStaffID." - ".$url;
+			    $text = $events2['emp_code'].'/n'.$events2['emp_name'].'/n'.$events2['emp_email'];
+			    //$text = $CStaffID." - ".$url;
 			}
 			else if($ctext == 'สวัสดี'){
 				$text = 'หวัดดีว่าไงสึส';
