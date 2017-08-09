@@ -19,11 +19,10 @@ if (!is_null($events['events'])) {
 			if ($pos2 !== false) {
 			    $text = 'อยากทำงานแล้วเหรอ';
 			}
-			
-			if($event['message']['text'] == 'สวัสดี'){
+			else if($ctext == 'สวัสดี'){
 				$text = 'หวัดดีว่าไงสึส';
 			}
-			else if($event['message']['text'] == 'นาวา'){
+			else if($ctext == 'นาวา'){
 				$text = 'เด็กเทพ รู้จักด้วยเหรอ??';
 			}
 			else{
