@@ -10,7 +10,8 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
+		{
 			$replyToken = $event['replyToken'];
 			$findstaff    = '@';
 			
@@ -22,7 +23,10 @@ if (!is_null($events['events'])) {
 			
 			if ($pos2 !== false) {
 			    //$text = 'อยากทำงานแล้วเหรอ';
-			    $CStaffID = str_replace($findstaff, '', $ctext);
+			    $CStaffID = explode($findstaff, $ctext)[0];
+			    $CTextCase = explode($findstaff, $ctext)[1];
+				
+			    
 			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
 			    $getdetail = file_get_contents($url);
 			    $events2 = json_decode($getdetail, true);
@@ -33,60 +37,50 @@ if (!is_null($events['events'])) {
 			    $empdept = $events2[0]['line_name'];
 			    $empmail = $events2[0]['emp_email'];
 
-				if(!empty($empcode)){
-
-					$url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid;
-
-					//$text = $url2;
-					
-			    	$getdetail2 = file_get_contents($url2);
-			    	$ins1result = json_decode($getdetail2, true);
-			    	$ins1msg = $ins1result[0]['MSG'];
-
-			    	if($ins1msg == 'OK'){
-
-			    		$text = 'แจ้งปัญหามาได้เลยครับ โดยการพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-			    	}
-			    	else{
-
-			    		switch ($ins1msg) {
-					    case "ST1":
-						$text = 'คุณยังอยู่ในขั้นตอนการแจ้งปัญหานะครับ กรุณาพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-						break;
-					    case "ST2":
-						$text = 'คุณอยู่ในขั้นตอนการแจ้งปัญหานะครับ กรุณาพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-						break;
-					    case "ST3":
-						$text = 'คุณอยู่ในขั้นตอนการแจ้งปัญหานะครับ กรุณาพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-						break;     
-
-					}
-			    	}
-
-				    //$text = $events2[0]['emp_code']."\n ".$events2[0]['emp_name']."\n ".$events2[0]['emp_email'];
+		    if(!empty($empcode))
+		    {
 				    
+			    if(!empty($CTextCase))
+			    {
+					    
+			         $url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid;
+	
+			    }
+			    else
+			    {
+				    $getdetail2 = file_get_contents($url2);
+			    	    $ins1result = json_decode($getdetail2, true);
+			    	    $ins1msg = $ins1result[0]['MSG'];
 
-				}
-				else{
-				    $text = "มั่วมาป่าววะ ไปดูรหัสตัวเองมาใหม่!!";
-				}
+					if($ins1msg == 'OK'){
+
+						$text = 'ขอบคุณคุณ '.''.' มากครับเราจะแจ้งเจ้าหน้าที่ให้รีบดำเนินการให้ทันทีครับ';
+					}
+					else{
+
+						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+					} 
+			    
+			         }
+		       }
+			else
+			{
+			    $text = "ขออภัยครับรหัสพนักงานของคุณไม่พบอยู่ในระบบครับกรุณาตรวจสอบอีกครั้งครับ";
+			}
 			   
+		}
+		else {
+
+			if($ctext == 'สวัสดี'){
+			$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
 			}
-			else {
-				
-				if($ctext == 'สวัสดี'){
-				$text = 'หวัดดีว่าไงสึส';
-				}
-				else if($ctext == 'แจ้งปัญหา'){
-					$text = 'สวัสดีครับ แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"@"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับ  ของคุณได้เลยครับ เช่น ( 12345@คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์ 1888)';
-				}
-				else if($ctext == 'นาวา'){
-					$text = 'เด็กเทพ รู้จักด้วยเหรอ??';
-				}
-				else{
-					$text = 'สวัสดีครับ แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"@"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับ  ของคุณได้เลยครับ เช่น ( 12345@คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์ 1888)';
-				}
+			else if($ctext == 'แจ้งปัญหา'){
+				$text = 'สวัสดีครับ แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"@"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับ  ของคุณได้เลยครับ เช่น ( 12345@คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์ 1888)';
 			}
+			else{
+				$text = 'สวัสดีครับ แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"@"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับ  ของคุณได้เลยครับ เช่น ( 12345@คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์ 1888)';
+			}
+		}
 				
 				
 				
