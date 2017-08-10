@@ -43,14 +43,11 @@ if (!is_null($events['events'])) {
 			    if(!empty($CTextCase))
 			    {
 					    
-			         $url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid;
-	
-			    }
-			    else
-			    {
-				    $getdetail2 = file_get_contents($url2);
-			    	    $ins1result = json_decode($getdetail2, true);
-			    	    $ins1msg = $ins1result[0]['MSG'];
+			         $url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid.'/'.$CTextCase;
+				 
+				 $getdetail2 = file_get_contents($url2);
+			    	 $ins1result = json_decode($getdetail2, true);
+			    	 $ins1msg = $ins1result[0]['MSG'];
 
 					if($ins1msg == 'OK'){
 
@@ -59,9 +56,13 @@ if (!is_null($events['events'])) {
 					else{
 
 						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
-					} 
+					}
+			    }
+			    else
+			    {
+				     $text = 'ขออภัยครับคุณไม่ได้ใส่รายละเอียดปัญหามาให้ครับ รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
 			    
-			         }
+			    }
 		       }
 			else
 			{
