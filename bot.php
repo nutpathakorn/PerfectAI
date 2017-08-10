@@ -42,8 +42,8 @@ if (!is_null($events['events'])) {
 
 					$url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid;
 
-					$text = $url2;
-					/*
+					//$text = $url2;
+					
 			    	$getdetail2 = file_get_contents($url2);
 			    	$ins1result = json_decode($getdetail2, true);
 			    	$ins1msg = $ins1result[0]['MSG'];
@@ -69,7 +69,7 @@ if (!is_null($events['events'])) {
 			    	}
 
 				    //$text = $events2[0]['emp_code']."\n ".$events2[0]['emp_name']."\n ".$events2[0]['emp_email'];
-				    */
+				    
 
 				}
 				else{
