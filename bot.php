@@ -25,6 +25,7 @@ if (!is_null($events['events'])) {
 			    //$text = 'อยากทำงานแล้วเหรอ';
 			    $CStaffID = explode($findstaff, $ctext)[0];
 			    $CTextCase = explode($findstaff, $ctext)[1];
+			    $CTextCase = str_replace(' ', '%20', $CTextCase);
 				
 			    
 			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
