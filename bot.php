@@ -17,7 +17,7 @@ if (!is_null($events['events'])) {
 			$findphone    = '@p';
 			$findlocation    = '@s';
 			$ctext = $event['message']['text'];
-			$luserid = $event['source']['userid'];
+			$luserid = $event['source']['userId'];
 			$pos2 = stripos($ctext, $findstaff);
 			$pos3 = stripos($ctext, $finddetail);
 			$pos4 = stripos($ctext, $findphone);
