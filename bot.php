@@ -48,10 +48,11 @@ if (!is_null($events['events'])) {
 				 $getdetail2 = file_get_contents($url2);
 			    	 $ins1result = json_decode($getdetail2, true);
 			    	 $ins1msg = $ins1result[0]['MSG'];
+				 $ins1sname = $ins1result[0]['StaffName'];
 
 					if($ins1msg == 'OK'){
 
-						$text = 'ขอบคุณคุณ '.''.' มากครับเราจะแจ้งเจ้าหน้าที่ให้รีบดำเนินการให้ทันทีครับ';
+						$text = 'ขอบคุณคุณ '.$ins1sname.' มากครับเราจะแจ้งเจ้าหน้าที่ให้รีบดำเนินการให้ทันทีครับ';
 					}
 					else{
 
