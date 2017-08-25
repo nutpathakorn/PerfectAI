@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 			    $JobsStatus = $events2[0]['JobsStatus'];
 			    $STAFF = $events2[0]['STAFF'];
 				    
-			    $text = 'หมายเลขงาน : '.$JobsID.'\n'.'รายละเอียด : '.$JobsDetails.'\n'.'สถานะงาน : '.$JobsStatus.'\n'.'ผู้ดูแล : '.$STAFF.'\n'.'สอบถามเพิ่มเติม : 022477500 ต่อ 1840\n';
+			    $text = 'หมายเลขงาน : '.$JobsID."\n".'รายละเอียด : '.$JobsDetails."\n".'สถานะงาน : '.$JobsStatus."\n".'ผู้ดูแล : '.$STAFF."\n".'สอบถามเพิ่มเติม : 022477500 ต่อ 1840';
 				$messages = [
 				'type' => 'text',
 				'text' => $text
