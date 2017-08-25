@@ -23,12 +23,17 @@ if (!is_null($events['events'])) {
 			
 			if ($pos2 !== false) {
 			    //$text = 'อยากทำงานแล้วเหรอ';
+			    
 			    $CStaffID = explode($findstaff, $ctext)[0];
 			    $CTextCase = explode($findstaff, $ctext)[1];
 			    $CTextCase = str_replace(' ', '%20', $CTextCase);
 				
+		            if($CStaffID == 'สถานะ'){
 			    
-			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
+			    }
+			    else{
+				    
+		            $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
 			    $getdetail = file_get_contents($url);
 			    $events2 = json_decode($getdetail, true);
 
@@ -38,8 +43,8 @@ if (!is_null($events['events'])) {
 			    $empdept = $events2[0]['line_name'];
 			    $empmail = $events2[0]['emp_email'];
 
-		    if(!empty($empcode))
-		    {
+			    if(!empty($empcode))
+			    {
 				    
 			    if(!empty($CTextCase))
 			    {
@@ -54,35 +59,89 @@ if (!is_null($events['events'])) {
 					if($ins1msg == 'OK'){
 
 						$text = 'ขอบคุณคุณ '.$ins1sname.' มากครับเราจะแจ้งเจ้าหน้าที่ให้รีบดำเนินการให้ทันทีครับ';
+						$messages = [
+						'type' => 'text',
+						'text' => $text
+						];
 					}
 					else{
 
 						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+						$messages = [
+						'type' => 'text',
+						'text' => $text
+						];
 						//$text = $url2;
 					}
 			    }
 			    else
 			    {
 				     $text = 'ขออภัยครับคุณไม่ได้ใส่รายละเอียดปัญหามาให้ครับ รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+				    $messages = [
+				'type' => 'text',
+				'text' => $text
+				];
 			    
 			    }
 		       }
 			else
 			{
 			    $text = "ขออภัยครับรหัสพนักงานของคุณไม่พบอยู่ในระบบครับกรุณาตรวจสอบอีกครั้งครับ";
+			    $messages = [
+				'type' => 'text',
+				'text' => $text
+				];
 			}
+			    
+		   } 
 			   
 		}
 		else {
 
 			if($ctext == 'สวัสดี'){
-			$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
+				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
 			}
 			else if($ctext == 'แจ้งปัญหา'){
 				$text = 'สวัสดีครับ '."\xF0\x9F\x98\x81"."\n\n".'แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"@"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับของคุณได้เลยครับ'."\n\n"."\xE2\x98\x9D".' ตัวอย่างเช่น(รหัสพนักงานคือ12345)'."\n\n"."\xE2\x9C\x85".' 12345@คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์1888';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			else if($ctext == 'สถานะงาน'){
+				$text = 'สวัสดีครับ '."\xF0\x9F\x98\x81"."\n\n".'เช็คสถานะงานเริ่มด้วยการพิมพ์ สถานะ+"@"+รหัสงานของคุณได้เลยครับ'."\n\n"."\xE2\x98\x9D".' ตัวอย่างเช่น(รหัสงานคือ10031)'."\n\n"."\xE2\x9C\x85".' สถานะ@10031';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
 			}
 			else{
-				$text = 'สวัสดีครับ '."\xF0\x9F\x98\x81"."\n\n".'แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"@"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับของคุณได้เลยครับ'."\n\n"."\xE2\x98\x9D".' ตัวอย่างเช่น(รหัสพนักงานคือ12345)'."\n\n"."\xE2\x9C\x85".' 12345@คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์1888';
+				$baction = [
+				[
+					'type' => 'message',
+					'label' => 'แจ้งปัญหา',
+					'text' => 'แจ้งปัญหา'
+				],
+				[
+					'type' => 'message',
+					'label' => 'สถานะงาน',
+					'text' => 'สถานะงาน'
+				]	
+				];
+				$btemplate = [
+					'type' => 'confirm',
+					'text' => 'สวัสดีครับต้องการทำรายการอะไรดีครับ',
+					'actions' => $baction
+				];
+				$messages = [
+					'type' => 'template',
+					'altText' => 'this is a confirm template',
+					'template' => $btemplate
+				];
 			}
 		}
 				
@@ -91,10 +150,8 @@ if (!is_null($events['events'])) {
 			
 			
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
+			
+			
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
