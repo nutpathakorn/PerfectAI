@@ -70,10 +70,11 @@ if (!is_null($events['events'])) {
 			    	 $ins1result = json_decode($getdetail2, true);
 			    	 $ins1msg = $ins1result[0]['MSG'];
 				 $ins1sname = $ins1result[0]['StaffName'];
+				 $ins1sid = $ins1result[0]['JobsID'];
 
 					if($ins1msg == 'OK'){
 
-						$text = 'ขอบคุณคุณ '.$ins1sname.' มากครับเราจะแจ้งเจ้าหน้าที่ให้รีบดำเนินการให้ทันทีครับ';
+						$text = 'ขอบคุณคุณ '.$ins1sname.' มากครับเราจะแจ้งเจ้าหน้าที่ให้รีบดำเนินการให้ทันทีครับ'."\n".'หมายเลขงานคุณคือ : '.$ins1sid;
 						$messages = [
 						'type' => 'text',
 						'text' => $text
