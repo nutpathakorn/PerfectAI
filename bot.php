@@ -29,6 +29,21 @@ if (!is_null($events['events'])) {
 			    $CTextCase = str_replace(' ', '%20', $CTextCase);
 				
 		            if($CStaffID == 'สถานะ'){
+				    
+			    $url = 'http://helpdesk.pf.co.th/AISearchJobs1/'.$CTextCase;
+			    $getdetail = file_get_contents($url);
+			    $events2 = json_decode($getdetail, true);
+
+			    $JobsID = $events2[0]['JobsID'];
+			    $JobsDetails = $events2[0]['JobsDetails'];
+			    $JobsStatus = $events2[0]['JobsStatus'];
+			    $STAFF = $events2[0]['STAFF'];
+				    
+			    $text = 'หมายเลขงาน : '.$JobsID.'/n'.'รายละเอียด : '.$JobsDetails.'/n'.'สถานะงาน : '.$JobsStatus.'/n'.'ผู้ดูแล : '.$STAFF.'/n'.'สอบถามเพิ่มเติม : 2477500 ต่อ 1840/n';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
 			    
 			    }
 			    else{
