@@ -46,6 +46,35 @@ if (!is_null($events['events'])) {
 				];
 			    
 			    }
+			    else if($CStaffID == 'Vote'){
+				    $findVote    = '#';
+				    
+				    $VJobsID = explode($findVote, $CTextCase)[0];
+				    $VResult = explode($findVote, $CTextCase)[1];
+				    
+				    $Vurl = 'http://helpdesk.pf.co.th/AIVoteResult/'.$VJobsID.'/'.$VResult;
+				    $Vgetdetail = file_get_contents($Vurl);
+				    $Vevents = json_decode($Vgetdetail, true);
+				    
+				    $VMSG = $Vevents[0]['MSG'];
+				    
+				    if($VMSG == 'OK'){
+					    
+					    $text = 'ขอบคุณสำหรับความคิดเห็นครับ';
+						$messages = [
+						'type' => 'text',
+						'text' => $text
+						];
+				    
+				    }
+				    else{
+					    $text = 'ขออภัยครับคุณได้แสดงความคิดเห็นนี้ไปแล้วครับ';
+						$messages = [
+						'type' => 'text',
+						'text' => $text
+						];			    
+				    }  
+			    }
 			    else{
 				    
 		            $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
