@@ -68,7 +68,7 @@ if (!is_null($events['events'])) {
 				    
 				    }
 				    else{
-					    $text = 'ขออภัยครับคุณได้แสดงความคิดเห็นนี้ไปแล้วครับ'.$VMSG;
+					    $text = 'ขออภัยครับคุณได้แสดงความคิดเห็นนี้ไปแล้วครับ'.$VResult.'-'.$VJobsID;
 						$messages = [
 						'type' => 'text',
 						'text' => $text
