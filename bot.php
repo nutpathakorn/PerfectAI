@@ -47,7 +47,7 @@ if (!is_null($events['events'])) {
 			    
 			    }
 			    else if($CStaffID == 'Vote'){
-				    $findVote    = '#';
+				    $findVote    = ',';
 				    
 				    $VJobsID = explode($findVote, $CTextCase)[0];
 				    $VResult = explode($findVote, $CTextCase)[1];
