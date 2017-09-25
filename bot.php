@@ -67,8 +67,15 @@ if (!is_null($events['events'])) {
 						];
 				    
 				    }
+				    else if($VMSG == 'DUP'){
+					    $text = 'ขออภัยครับคุณได้แสดงความคิดเห็นนี้ไปแล้วครับ';
+						$messages = [
+						'type' => 'text',
+						'text' => $text
+						];
+				    }
 				    else{
-					    $text = 'ขออภัยครับคุณได้แสดงความคิดเห็นนี้ไปแล้วครับ'.$VResult.'-'.$VJobsID;
+					    $text = 'ขออภัยครับเกิดปัญหาบางประการกรุณาติด่อผู้ดูแลระบบครับ';
 						$messages = [
 						'type' => 'text',
 						'text' => $text
