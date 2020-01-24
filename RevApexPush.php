@@ -1,5 +1,5 @@
 <?php
-$access_token = 'nt1D33RgrPQI8u3h0IugdOafvlH2Um2UISC5rqsWeuTKw/oxWGQeTBNvsjSonOAB2oyFgdKASz5ZNDeZMejpv7Dg9eUTuWwJfILRIg1fyhZy/owcMjcnQbNV1DRwg/leJ5A0DMCTGuGWiw0OYIj80gdB04t89/1O/w1cDnyilFU=';
+$access_token = 'AwHRBx5uVcw2NRLELm9R2oxun8RG082jlDNyXA2yXn+I/aAjqnvC4seHuqHDbbnKxG00hjhI4wJIxPzeaIh32M3wNULjW2QK82C+Bq01yf2Le3ihamUkSKYj16wXKvbvOGrn2SEg7zHdU4DNvY9gQAdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -18,49 +18,14 @@ if (!is_null($events['events'])) {
 			$findlocation    = '@s';
 			$ctext = $event['message']['text'];
 			$luserid = $event['source']['userid']
-			$pos2 = stripos($ctext, $findstaff);
-			$pos3 = stripos($ctext, $finddetail);
-			$pos4 = stripos($ctext, $findphone);
-			$pos5 = stripos($ctext, $findlocation);
+			$pos2 = $ctext;
 			
 			
 			
-			if ($pos2 !== false) {
-			    //$text = 'อยากทำงานแล้วเหรอ';
-			    $CStaffID = str_replace($findstaff, '', $ctext);
-			    $url = 'http://helpdesk.pf.co.th/AISearchSTFByID/'.$CStaffID;
-			    $getdetail = file_get_contents($url);
-			    $events2 = json_decode($getdetail, true);
+			if ($ctext == 'ขอid') {
+			    //$text = 'อยากทำงานแล้วเหรอ';	
+				$text = 'Line UserID ของคุณคือ: '.$luserid;
 
-			    $empcode = $events2[0]['emp_code'];
-			    $empname = $events2[0]['emp_name'];
-			    $empdept = $events2[0]['line_name'];
-			    $empmail = $events2[0]['emp_email'];
-
-				if(!empty($empcode)){
-
-					$url2 = 'http://helpdesk.pf.co.th/AIInsertJobs1/'.$empcode.'/'.$empname.'/'.$empdept.'/'.$empmail.'/'.$luserid;
-			    	$getdetail2 = file_get_contents($url2);
-			    	$ins1result = json_decode($getdetail2, true);
-			    	$ins1msg = $ins1result[0]['MSG']
-
-			    	if($ins1msg == 'OK'){
-
-			    		$text = 'แจ้งปัญหามาได้เลยครับ โดยการพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-			    	}
-			    	else{
-
-			    		switch ($ins1msg) {
-                            case "ST1":
-                                $text = 'คุณยังอยู่ในขั้นตอนการแจ้งปัญหานะครับ กรุณาพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-                                break;
-                            case "ST2":
-                                $text = 'คุณอยู่ในขั้นตอนการแจ้งปัญหานะครับ กรุณาพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-                                break;
-                            case "ST3":
-                                $text = 'คุณอยู่ในขั้นตอนการแจ้งปัญหานะครับ กรุณาพิมพ์"@d"ตามด้วยรายละเอียดปัญหาครับ เช่น(@dคอมพิวเตอร์เปิดไม่ติด)';
-                                break;     
-                         
                         }
 			    	}
 
@@ -87,19 +52,8 @@ if (!is_null($events['events'])) {
 			}
 			*/
 			else {
+				$text = 'สวัสดีครับ ขอดูรหัสของคุณเริ่มด้วยการพิมพ์ "@i"';
 				
-				if($ctext == 'สวัสดี'){
-				$text = 'หวัดดีว่าไงสึส';
-				}
-				else if($ctext == 'แจ้งปัญหา'){
-					$text = 'สวัสดีครับ แจ้งปัญหาเริ่มด้วยการพิมพ์ "@i"ตามด้วยรหัสพนักงานของคุณได้เลยครับ เช่น (@ixxxxx) ';
-				}
-				else if($ctext == 'นาวา'){
-					$text = 'เด็กเทพ รู้จักด้วยเหรอ??';
-				}
-				else{
-					$text = 'พิมพ์ไรมาวะกุไม่เข้าใจ..ห่า';
-				}
 			}
 				
 				
