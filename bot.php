@@ -6,14 +6,14 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 //รับ id ว่ามาจากไหน
-   if(isset($arrayJson['events'][0]['source']['userId']){
-      $luserid = $arrayJson['events'][0]['source']['userId'];
+   if(isset($events['events'][0]['source']['userId']){
+      $luserid = $events['events'][0]['source']['userId'];
    }
-   else if(isset($arrayJson['events'][0]['source']['groupId'])){
-      $luserid = $arrayJson['events'][0]['source']['groupId'];
+   else if(isset($events['events'][0]['source']['groupId'])){
+      $luserid = $events['events'][0]['source']['groupId'];
    }
-   else if(isset($arrayJson['events'][0]['source']['room'])){
-      $luserid = $arrayJson['events'][0]['source']['room'];
+   else if(isset($events['events'][0]['source']['room'])){
+      $luserid = $events['events'][0]['source']['room'];
    }
 
 // Validate parsed JSON data
