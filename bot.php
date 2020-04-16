@@ -5,6 +5,17 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
+//รับ id ว่ามาจากไหน
+   if(isset($arrayJson['events'][0]['source']['userId']){
+      $luserid = $arrayJson['events'][0]['source']['userId'];
+   }
+   else if(isset($arrayJson['events'][0]['source']['groupId'])){
+      $luserid = $arrayJson['events'][0]['source']['groupId'];
+   }
+   else if(isset($arrayJson['events'][0]['source']['room'])){
+      $luserid = $arrayJson['events'][0]['source']['room'];
+   }
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -16,7 +27,7 @@ if (!is_null($events['events'])) {
 			$findstaff    = '@';
 			
 			$ctext = $event['message']['text'];
-			$luserid = $event['source']['userId'];
+			//$luserid = $event['source']['userId'];
 			$pos2 = stripos($ctext, $findstaff);
 			
 			
