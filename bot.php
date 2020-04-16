@@ -194,7 +194,7 @@ if (!is_null($events['events'])) {
 				'text' => $text
 				];
 			}
-			else{
+			else if($ctext == 'gb'){
 				$baction = [
 				[
 					'type' => 'message',
@@ -247,6 +247,6 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK2";
+echo "OK";
 ?>
 
