@@ -170,6 +170,7 @@ if (!is_null($events['events'])) {
 			$tgreed = stripos($ctext, 'ไอที');
 			$tgreed2 = stripos($ctext, 'ทำไรได้');
 			$tgreed3 = stripos($ctext, 'ช่วยด้วย');
+			$tgreed4 = stripos($ctext, 'wfh');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -194,6 +195,13 @@ if (!is_null($events['events'])) {
 			}
 			else if($tgreed3 !== false){
 				$text = 'เฮ้อว่าแล้ว.. "แจ้งปัญหา" "สถานะงาน" ทำอยู่2อย่างแค่นี้แหละ';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			else if($tgreed4 !== false){
+				$text = 'https://docs.google.com/forms/d/e/1FAIpQLSfAVVwtDtRCFVGq9BqsnKc8Hq3HEj5CHgmSUNLsssQ9D049jA/viewform';
 				$messages = [
 				'type' => 'text',
 				'text' => $text
