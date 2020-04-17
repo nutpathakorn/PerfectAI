@@ -166,9 +166,34 @@ if (!is_null($events['events'])) {
 			   
 		}
 		else {
+			
+			$tgreed = stripos($ctext, 'ไอที');
+			$tgreed2 = stripos($ctext, 'ทำไรได้');
+			$tgreed3 = stripos($ctext, 'ช่วยด้วย');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			else if($tgreed !== false){
+				$text = 'หวัดดีครับพี่ มีไรให้ผมช่วยครับ';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			else if($tgreed2 !== false){
+				$text = 'ผมทำไรได้เหรอ พิมพ์ "ช่วยด้วย" เอาละกัน';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			else if($tgreed3 !== false){
+				$text = 'เฮ้อว่าแล้ว.. "แจ้งปัญหา" "สถานะงาน" ทำอยู่2อย่างแค่นี้แหละ';
 				$messages = [
 				'type' => 'text',
 				'text' => $text
