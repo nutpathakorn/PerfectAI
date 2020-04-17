@@ -16,10 +16,10 @@ if (!is_null($events['events'])) {
 			$findstaff    = '@';
 			
 			$ctext = $event['message']['text'];
-			$luserid = $event['source']['userId'];
+			//$luserid = $event['source']['userId'];
 			
 			//รับ id ว่ามาจากไหน
-			/*
+			
 			   if(isset($event['source']['userId']){
 			      $luserid = $event['source']['userId'];
 			   }
@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 			   else if(isset($event['source']['room'])){
 			      $luserid = $event['source']['room'];
 			   }
-			   */
+			   
 			      
 			$pos2 = stripos($ctext, $findstaff);
 			
