@@ -117,6 +117,11 @@ if (!is_null($events['events'])) {
 			    $empdept = $events2[0]['line_name'];
 		            $empdept = str_replace(' ', '%20', $empdept);
 			    $empmail = $events2[0]['emp_email'];
+				    
+			    if(empty($empmail))
+			    {
+				    $empmail = 'nomail';
+			    }
 
 			    if(!empty($empcode))
 			    {
