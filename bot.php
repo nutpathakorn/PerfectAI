@@ -110,6 +110,7 @@ if (!is_null($events['events'])) {
 			    $empname = $events2[0]['emp_name'];
 			    $empname = str_replace(' ', '%20', $empname);
 			    $empdept = $events2[0]['line_name'];
+		            $empdept = str_replace(' ', '%20', $empdept);
 			    $empmail = $events2[0]['emp_email'];
 
 			    if(!empty($empcode))
