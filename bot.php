@@ -43,8 +43,8 @@ if (!is_null($events['events'])) {
 			    
 			    $CStaffID = explode($findstaff, $ctext)[0];
 			    $CTextCase = explode($findstaff, $ctext)[1];
-			    //$CTextCase = str_replace(' ', '%20', $CTextCase);
-			    $CTextCase = htmlentities($CTextCase);
+			    $CTextCase = str_replace(' ', '%20', $CTextCase);
+			    $CTextCasetest = htmlentities($CTextCase);
 				
 		            if($CStaffID == 'สถานะ'){
 				    
@@ -137,9 +137,8 @@ if (!is_null($events['events'])) {
 						];
 					}
 					else{
-
-		//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' ins1sid='.$ins1sid;
-						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' $CTextCasetest='.$CTextCasetest;
+						//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
 						$messages = [
 						'type' => 'text',
 						'text' => $text
