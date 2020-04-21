@@ -137,8 +137,8 @@ if (!is_null($events['events'])) {
 					}
 					else{
 
-		$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' ins1sid='.$ins1sid;
-						//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+		//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' ins1sid='.$ins1sid;
+						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
 						$messages = [
 						'type' => 'text',
 						'text' => $text
