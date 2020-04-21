@@ -46,7 +46,7 @@ if (!is_null($events['events'])) {
 			    $CTextCase = str_replace(' ', '%20', $CTextCase);
 			    $CTextCase = str_replace('/', '-', $CTextCase);
 				
-			    $CTextCasetest = $CTextCase;
+			    //$CTextCasetest = $CTextCase;
 				
 			    
 				
@@ -141,8 +141,8 @@ if (!is_null($events['events'])) {
 						];
 					}
 					else{
-$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' $CTextCasetest='.$CTextCasetest;
-						//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' $CTextCasetest='.$CTextCasetest;
+						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
 						$messages = [
 						'type' => 'text',
 						'text' => $text
