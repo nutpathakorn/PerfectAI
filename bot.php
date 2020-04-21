@@ -43,7 +43,7 @@ if (!is_null($events['events'])) {
 			    
 			    $CStaffID = explode($findstaff, $ctext)[0];
 			    $CTextCase = explode($findstaff, $ctext)[1];
-			    $CTextCasetest = htmlentities($CTextCase);
+			    $CTextCasetest = htmlspecialchars($CTextCase);
 			    $CTextCase = str_replace(' ', '%20', $CTextCase);
 			    
 				
