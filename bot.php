@@ -108,9 +108,11 @@ if (!is_null($events['events'])) {
 			    $empcode = $events2[0]['emp_code'];
 			    $empnametest = $events2[0]['emp_name'];
 			    $empname = $events2[0]['emp_name'];
-			    $empname = str_replace(' ', '%20', $empname);
+			    //$empname = str_replace(' ', '%20', $empname);
+			    $empname = htmlentities($empname);
 			    $empdept = $events2[0]['line_name'];
-		            $empdept = str_replace(' ', '%20', $empdept);
+		            //$empdept = str_replace(' ', '%20', $empdept);
+			    $empdept = htmlentities($empdept);
 			    $empmail = $events2[0]['emp_email'];
 
 			    if(!empty($empcode))
