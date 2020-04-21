@@ -106,6 +106,7 @@ if (!is_null($events['events'])) {
 			    $events2 = json_decode($getdetail, true);
 
 			    $empcode = $events2[0]['emp_code'];
+			    $empnametest = $events2[0]['emp_name'];
 			    $empname = $events2[0]['emp_name'];
 			    $empname = str_replace(' ', '%20', $empname);
 			    $empdept = $events2[0]['line_name'];
@@ -135,7 +136,7 @@ if (!is_null($events['events'])) {
 					}
 					else{
 
-						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$emp_name.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid;
+						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empnametest.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid;
 						$messages = [
 						'type' => 'text',
 						'text' => $text
