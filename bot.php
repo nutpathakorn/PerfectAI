@@ -43,7 +43,8 @@ if (!is_null($events['events'])) {
 			    
 			    $CStaffID = explode($findstaff, $ctext)[0];
 			    $CTextCase = explode($findstaff, $ctext)[1];
-			    $CTextCase = str_replace(' ', '%20', $CTextCase);
+			    //$CTextCase = str_replace(' ', '%20', $CTextCase);
+			    $CTextCase = htmlentities($CTextCase);
 				
 		            if($CStaffID == 'สถานะ'){
 				    
