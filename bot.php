@@ -146,8 +146,8 @@ if (!is_null($events['events'])) {
 						];
 					}
 					else{
-$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' $CTextCase='.$CTextCase;
-						//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
+//$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ : $empcode='.$empcode.' emp_name='.$empname.' empdept='.$empdept.' empmail='.$empmail.' luserid='.$luserid.' ins1msg='.$ins1msg.' ins1sname='.$ins1sname.' $CTextCase='.$CTextCase;
+						$text = 'ขออภัยครับเกิดปัญหาบางประการขณะดำเนินการแจ้งปัญหา รบกวนให้ทำการแจ้งปัญหาอีกครั้งครับ';
 						$messages = [
 						'type' => 'text',
 						'text' => $text
@@ -183,6 +183,13 @@ $text = 'ขออภัยครับเกิดปัญหาบางป�
 			$tgreed2 = stripos($ctext, 'ทำไรได้');
 			$tgreed3 = stripos($ctext, 'ช่วยด้วย');
 			$tgreed4 = stripos($ctext, 'wfh');
+			$tgreed5 = stripos($ctext, 'ตารางงาน');
+			
+			"line": {
+    "type": "image",
+    "originalContentUrl": "https://1.bp.blogspot.com/-U90M8DyKu7Q/W9EtONMCf6I/AAAAAAAAW_4/7L_jB_Rg9oweu2HKhULNdu9WNefw9zf9wCLcBGAs/s1600/sao-full.jpg",
+    "previewImageUrl": "https://3.bp.blogspot.com/-POLCd-KKazc/W9EtNxsqwpI/AAAAAAAAW_0/c8P1A4Ik3tMsCXZwaI1B2n3eXZqG0ifzwCLcBGAs/s1600/sao-preview.jpg"
+  }
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -217,6 +224,13 @@ $text = 'ขออภัยครับเกิดปัญหาบางป�
 				$messages = [
 				'type' => 'text',
 				'text' => $text
+				];
+			}
+			else if($tgreed5 !== false){
+				$messages = [
+				'type' => 'image',
+				'originalContentUrl': 'https://drive.google.com/open?id=1DI0nXLWCZf_zYUsCYveZ8JWlhKFwH1TG',
+    				'previewImageUrl': 'https://drive.google.com/open?id=1DI0nXLWCZf_zYUsCYveZ8JWlhKFwH1TG',
 				];
 			}
 			else if ($ctext == 'ขอid') {
