@@ -223,8 +223,8 @@ if (!is_null($events['events'])) {
 			else if($tgreed5 !== false){
 				$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'https://drive.google.com/file/d/1DI0nXLWCZf_zYUsCYveZ8JWlhKFwH1TG/view?usp=sharing',
-    				'previewImageUrl' => 'https://drive.google.com/file/d/1DI0nXLWCZf_zYUsCYveZ8JWlhKFwH1TG/view?usp=sharing',
+				'originalContentUrl' => 'https://drive.google.com/file/d/1DI0nXLWCZf_zYUsCYveZ8JWlhKFwH1TG',
+    				'previewImageUrl' => 'https://drive.google.com/file/d/1DI0nXLWCZf_zYUsCYveZ8JWlhKFwH1TG',
 				];
 			}
 			else if ($ctext == 'ขอid') {
