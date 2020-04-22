@@ -275,11 +275,16 @@ if (!is_null($events['events'])) {
 					'type' => 'message',
 					'label' => 'ลงเวลาWork From Home',
 					'text' => 'wfh'
-				],
+				],	
 				[
 					'type' => 'message',
+					'label' => 'ตารางงาน',
+					'text' => 'ตารางงาน'
+				],
+				[
+					'type' => 'uri',
 					'label' => 'แจ้งผ่านเว็ป Helpdesk',
-					'text' => 'http://helpdesk.pf.co.th'
+					'uri' => 'http://helpdesk.pf.co.th'
 				]	
 				];
 				$btemplate = [
