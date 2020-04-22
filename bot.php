@@ -272,16 +272,6 @@ if (!is_null($events['events'])) {
 					'text' => 'สถานะงาน'
 				],
 				[
-					'type' => 'message',
-					'label' => 'ลงเวลาWork From Home',
-					'text' => 'wfh'
-				],	
-				[
-					'type' => 'message',
-					'label' => 'ตารางงาน',
-					'text' => 'ตารางงาน'
-				],
-				[
 					'type' => 'uri',
 					'label' => 'แจ้งผ่านเว็ป Helpdesk',
 					'uri' => 'http://helpdesk.pf.co.th'
