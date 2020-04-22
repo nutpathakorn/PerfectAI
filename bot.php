@@ -242,14 +242,14 @@ if (!is_null($events['events'])) {
 			    	$getdetail_covid = file_get_contents($url_covid);
 			    	$events_covid = json_decode($getdetail_covid, true);
 
-			    	$covid_Confirmed = $getdetail_covid['Confirmed'];
-				$covid_Recovered = $getdetail_covid['Recovered'];
-				$covid_Hospitalized = $getdetail_covid[0]['Hospitalized'];
-				$covid_Deaths = $getdetail_covid[0]['Deaths'];
-				$covid_NewConfirmed = $getdetail_covid[0]['NewConfirmed'];
-				$covid_NewRecovered = $getdetail_covid[0]['NewRecovered'];
-				$covid_NewDeaths = $getdetail_covid[0]['NewDeaths'];
-				$covid_UpdateDate = $getdetail_covid[0]['UpdateDate'];
+			    	$covid_Confirmed = $events_covid['Confirmed'];
+				$covid_Recovered = $events_covid['Recovered'];
+				$covid_Hospitalized = $events_covid['Hospitalized'];
+				$covid_Deaths = $events_covid['Deaths'];
+				$covid_NewConfirmed = $events_covid['NewConfirmed'];
+				$covid_NewRecovered = $events_covid['NewRecovered'];
+				$covid_NewDeaths = $events_covid['NewDeaths'];
+				$covid_UpdateDate = $events_covid['UpdateDate'];
 				
 	$text = 'อัพเดตวันที่ : '.$covid_UpdateDate."\n".'ยอดติดเชื้อรวม : '.$covid_Confirmed."\n".'ยอดรักษาหายรวม : '.$covid_Recovered."\n".'รักษาอยู่รวม : '.$covid_Hospitalized."\n".'เสียชีวิตรวม : '.$covid_Deaths."\n".'ติดเชื้อใหม่ : '.$covid_NewConfirmed."\n".'เสียชีวิตเพิ่ม : '.$covid_NewDeaths;
 				$messages = [
