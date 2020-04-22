@@ -251,7 +251,7 @@ if (!is_null($events['events'])) {
 				$covid_NewDeaths = $events_covid[0]['NewDeaths'];
 				$covid_UpdateDate = $events_covid[0]['UpdateDate'];
 				
-	$text = 'อัพเดตวันที่ : '.$covid_UpdateDate.'\n'.'ยอดติดเชื้อรวม : '.$covid_Confirmed.'\n'.'ยอดรักษาหายรวม : '.$covid_Recovered.'\n'.'รักษาอยู่รวม : '.$covid_Hospitalized.'\n'.'เสียชีวิตรวม : '.$covid_Deaths.'\n'.'ติดเชื้อใหม่ : '.$covid_NewConfirmed.'\n'.'เสียชีวิตเพิ่ม : '.$covid_NewDeaths;
+	$text = 'อัพเดตวันที่ : '.$covid_UpdateDate."\n".'ยอดติดเชื้อรวม : '.$covid_Confirmed."\n".'ยอดรักษาหายรวม : '.$covid_Recovered."\n".'รักษาอยู่รวม : '.$covid_Hospitalized."\n".'เสียชีวิตรวม : '.$covid_Deaths."\n".'ติดเชื้อใหม่ : '.$covid_NewConfirmed."\n".'เสียชีวิตเพิ่ม : '.$covid_NewDeaths;
 				$messages = [
 				'type' => 'text',
 				'text' => $text
