@@ -184,6 +184,7 @@ if (!is_null($events['events'])) {
 			$tgreed3 = stripos($ctext, 'ช่วยด้วย');
 			$tgreed4 = stripos($ctext, 'wfh');
 			$tgreed5 = stripos($ctext, 'ตารางงาน');
+			$tgreed6 = stripos($ctext, '5555');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -225,6 +226,13 @@ if (!is_null($events['events'])) {
 				'type' => 'image',
 				'originalContentUrl' => 'https://raw.githubusercontent.com/nutpathakorn/RevonesQ/master/shift_it.jpg',
     				'previewImageUrl' => 'https://raw.githubusercontent.com/nutpathakorn/RevonesQ/master/shift_it.jpg',
+				];
+			}
+			else if($tgreed6 !== false){
+				$text = 'เหอะๆ ขำครับขำ';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
 				];
 			}
 			else if ($ctext == 'ขอid') {
