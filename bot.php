@@ -185,6 +185,7 @@ if (!is_null($events['events'])) {
 			$tgreed4 = stripos($ctext, 'wfh');
 			$tgreed5 = stripos($ctext, 'ตารางงาน');
 			$tgreed6 = stripos($ctext, '5555');
+			$tgreed7 = stripos($ctext, 'โควิด19');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -230,6 +231,27 @@ if (!is_null($events['events'])) {
 			}
 			else if($tgreed6 !== false){
 				$text = 'เหอะๆ ขำครับขำ';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			else if($tgreed7 !== false){
+				
+				$url_covid = 'https://covid19.th-stat.com/api/open/today';
+			    	$getdetail_covid = file_get_contents($url_covid);
+			    	$events_covid = json_decode($getdetail_covid, true);
+
+			    	$covid_Confirmed = $events_covid[0]['Confirmed'];
+				$covid_Recovered = $events_covid[0]['Recovered'];
+				$covid_Hospitalized = $events_covid[0]['Hospitalized'];
+				$covid_Deaths = $events_covid[0]['Deaths'];
+				$covid_NewConfirmed = $events_covid[0]['NewConfirmed'];
+				$covid_NewRecovered = $events_covid[0]['NewRecovered'];
+				$covid_NewDeaths = $events_covid[0]['NewDeaths'];
+				$covid_UpdateDate = $events_covid[0]['UpdateDate'];
+				
+	$text = 'อัพเดตวันที่ : '.$covid_UpdateDate.'\n'.'ยอดติดเชื้อรวม : '.$covid_Confirmed.'\n'.'ยอดรักษาหายรวม : '.$covid_Recovered.'\n'.'รักษาอยู่รวม : '.$covid_Hospitalized.'\n'.'เสียชีวิตรวม : '.$covid_Deaths.'\n'.'ติดเชื้อใหม่ : '.$covid_NewConfirmed.'\n'.'เสียชีวิตเพิ่ม : '.$covid_NewDeaths;
 				$messages = [
 				'type' => 'text',
 				'text' => $text
