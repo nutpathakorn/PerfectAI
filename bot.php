@@ -278,11 +278,6 @@ if (!is_null($events['events'])) {
 				],
 				[
 					'type' => 'message',
-					'label' => 'ตารางงาน',
-					'text' => 'ตารางงาน'
-				],
-				[
-					'type' => 'message',
 					'label' => 'แจ้งผ่านเว็ป Helpdesk',
 					'text' => 'http://helpdesk.pf.co.th'
 				]	
