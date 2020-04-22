@@ -186,6 +186,10 @@ if (!is_null($events['events'])) {
 			$tgreed5 = stripos($ctext, 'ตารางงาน');
 			$tgreed6 = stripos($ctext, '5555');
 			$tgreed7 = stripos($ctext, 'โควิด19');
+			$tgreed8 = stripos($ctext, 'เงินเดือน');
+			$tgreed9 = stripos($ctext, 'โบนัส');
+			
+			
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -257,6 +261,14 @@ if (!is_null($events['events'])) {
 				'text' => $text
 				];
 			}
+			else if($tgreed8 !== false || $tgreed9 !== false){
+				$messages = [
+				'type' => 'image',
+				'originalContentUrl' => 'https://raw.githubusercontent.com/nutpathakorn/RevonesQ/master/149525_th.jpg',
+    				'previewImageUrl' => 'https://raw.githubusercontent.com/nutpathakorn/RevonesQ/master/149525_th.jpg',
+				];
+			}
+			
 			else if ($ctext == 'ขอid') {
 			    //$text = 'อยากทำงานแล้วเหรอ';	
 				$text = 'Line UserID ของคุณคือ: '.$event['source']['userId'].' '.$event['source']['groupId'].' '.$event['source']['room'];
