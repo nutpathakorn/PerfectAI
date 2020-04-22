@@ -208,7 +208,7 @@ if (!is_null($events['events'])) {
 				];
 			}
 			else if($tgreed3 !== false){
-				$text = 'เฮ้อว่าแล้ว...ตามนี้ดูเอาครับ'."\n".'"แจ้งปัญหา"=ขั้นตอนการแจ้ง Helpdesk'."\n".'"สถานะงาน"=เรียกดูสถานะงานที่เปิดไปแล้ว'."\n".'"wfh"=เรียกไฟล์ลงเวลา Work from home'."\n".'"ตารางงาน"=เรียกดูตารางงาน IT';
+				$text = 'เฮ้อว่าแล้ว...ตามนี้ดูเอาครับ'."\n".'"แจ้งปัญหา"=ขั้นตอนการแจ้ง Helpdesk'."\n".'"สถานะงาน"=เรียกดูสถานะงานที่เปิดไปแล้ว'."\n".'"wfh"=เรียกไฟล์ลงเวลา Work from home'."\n".'"ตารางงาน"=เรียกดูตารางงาน IT'."\n".'"menu"=เรียกดูmenu';
 				$messages = [
 				'type' => 'text',
 				'text' => $text
@@ -258,7 +258,7 @@ if (!is_null($events['events'])) {
 				'text' => $text
 				];
 			}
-			else if($ctext == 'gb'){
+			else if($ctext == 'menu'){
 				$baction = [
 				[
 					'type' => 'message',
@@ -269,6 +269,16 @@ if (!is_null($events['events'])) {
 					'type' => 'message',
 					'label' => 'สถานะงาน',
 					'text' => 'สถานะงาน'
+				],
+				[
+					'type' => 'message',
+					'label' => 'ลงเวลาWork From Home',
+					'text' => 'wfh'
+				],
+				[
+					'type' => 'message',
+					'label' => 'ตารางงาน',
+					'text' => 'ตารางงาน'
 				]	
 				];
 				$btemplate = [
