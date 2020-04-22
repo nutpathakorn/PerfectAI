@@ -285,6 +285,7 @@ if (!is_null($events['events'])) {
 				$btemplate = [
 					'type' => 'buttons',
 					"title" => 'น้องไอทีมีทางเลือกให้..',
+					'text' => 'ขี้เกียจพิมพ์ก็กดเลยครับ',
 					'actions' => $baction
 				];
 				$messages = [
