@@ -284,7 +284,6 @@ if (!is_null($events['events'])) {
 				];
 				$btemplate = [
 					'type' => 'buttons',
-					"thumbnailImageUrl" => "https://raw.githubusercontent.com/nutpathakorn/RevonesQ/master/PF-320_132.png",
 					"title" => 'น้องไอทีมีทางเลือกให้..',
 					'text' => 'สวัสดีครับต้องการทำรายการอะไรดีครับ',
 					'actions' => $baction
