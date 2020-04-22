@@ -242,8 +242,8 @@ if (!is_null($events['events'])) {
 			    	$getdetail_covid = file_get_contents($url_covid);
 			    	$events_covid = json_decode($getdetail_covid, true);
 
-			    	$covid_Confirmed = $getdetail_covid[0]['Confirmed'];
-				$covid_Recovered = $getdetail_covid[0]['Recovered'];
+			    	$covid_Confirmed = $getdetail_covid['Confirmed'];
+				$covid_Recovered = $getdetail_covid['Recovered'];
 				$covid_Hospitalized = $getdetail_covid[0]['Hospitalized'];
 				$covid_Deaths = $getdetail_covid[0]['Deaths'];
 				$covid_NewConfirmed = $getdetail_covid[0]['NewConfirmed'];
