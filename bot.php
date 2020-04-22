@@ -258,7 +258,8 @@ if (!is_null($events['events'])) {
 				'text' => $text
 				];
 			}
-			else if($ctext == 'menu'){
+			else if($ctext == 'menu'){		
+				
 				$baction = [
 				[
 					'type' => 'message',
@@ -282,7 +283,9 @@ if (!is_null($events['events'])) {
 				]	
 				];
 				$btemplate = [
-					'type' => 'confirm',
+					'type' => 'buttons',
+					"thumbnailImageUrl" => "https://raw.githubusercontent.com/nutpathakorn/RevonesQ/master/PF-320_132.png",
+					"title" => 'น้องไอทีมีทางเลือกให้..',
 					'text' => 'สวัสดีครับต้องการทำรายการอะไรดีครับ',
 					'actions' => $baction
 				];
