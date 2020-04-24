@@ -188,11 +188,7 @@ if (!is_null($events['events'])) {
 			$tgreed7 = stripos($ctext, 'โควิด19');
 			$tgreed8 = stripos($ctext, 'เงินเดือน');
 			$tgreed9 = stripos($ctext, 'โบนัส');
-			$tgreed10 = stripos($ctext, 'ราคทอง');
-			
-			
-			
-			
+			$tgreed10 = stripos($ctext, 'ราคาทอง');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -273,6 +269,7 @@ if (!is_null($events['events'])) {
 			}
 			else if($tgreed10 !== false){
 				
+				
 				$url_gold = 'http://www.thaigold.info/RealTimeDataV2/gtdata_.txt';
 			    	$getdetail_gold = file_get_contents($url_gold);
 			    	$events_gold = json_decode($getdetail_gold, true);
@@ -280,11 +277,12 @@ if (!is_null($events['events'])) {
 			    	$gold_buy = $events_gold[4]['bid'];
 				$gold_sale = $events_gold[4]['ask'];
 				
-				$text = 'รับซื้อ : '.$getdetail_gold."\n".'ขายออก : '.$gold_sale;
+				$text = 'รับซื้อ : '.$gold_buy."\n".'ขายออก : '.$gold_sale;
 				$messages = [
 				'type' => 'text',
 				'text' => $text
 				];
+				
 			}
 			
 			else if ($ctext == 'ขอid') {
