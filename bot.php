@@ -280,7 +280,7 @@ if (!is_null($events['events'])) {
 			    	$gold_buy = $events_gold[4]['bid'];
 				$gold_sale = $events_gold[4]['ask'];
 				
-				$text = 'รับซื้อ : '.$gold_buy."\n".'ขายออก : '.$gold_sale;
+				$text = 'รับซื้อ : '.$getdetail_gold."\n".'ขายออก : '.$gold_sale;
 				$messages = [
 				'type' => 'text',
 				'text' => $text
