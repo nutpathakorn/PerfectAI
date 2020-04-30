@@ -190,6 +190,7 @@ if (!is_null($events['events'])) {
 			$tgreed9 = stripos($ctext, 'โบนัส');
 			$tgreed10 = stripos($ctext, 'ราคาทอง');
 			$tgreed11 = stripos($ctext, 'เจือก');
+			$tgreed12 = stripos($ctext, 'คนดี');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -247,7 +248,13 @@ if (!is_null($events['events'])) {
 				'text' => $text
 				];
 			}
-			
+			else if($tgreed12 !== false){
+				$text = 'จะเป็นคนดีไปทำไม เขาเลือกคนถูกใจไม่ใช่คนดีย์!!';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
 			else if($tgreed7 !== false){
 				
 				$url_covid = 'https://covid19.th-stat.com/api/open/today';
