@@ -189,6 +189,7 @@ if (!is_null($events['events'])) {
 			$tgreed8 = stripos($ctext, 'เงินเดือน');
 			$tgreed9 = stripos($ctext, 'โบนัส');
 			$tgreed10 = stripos($ctext, 'ราคาทอง');
+			$tgreed11 = stripos($ctext, 'เจือก');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -239,6 +240,14 @@ if (!is_null($events['events'])) {
 				'text' => $text
 				];
 			}
+			else if($tgreed11 !== false){
+				$text = 'ทำไมต้องหยาบกับน้อง..';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+			}
+			
 			else if($tgreed7 !== false){
 				
 				$url_covid = 'https://covid19.th-stat.com/api/open/today';
@@ -294,6 +303,7 @@ if (!is_null($events['events'])) {
 				];
 
                         }
+	
 			else if($ctext == 'แจ้งปัญหา'){
 				$text = 'สวัสดีครับ '."\xF0\x9F\x98\x81"."\n\n".'แจ้งปัญหาเริ่มด้วยการพิมพ์ รหัสพนักงาน+"&"+รายละเอียดปัญหา,สถานที่แจ้ง,เบอร์ติดต่อกลับของคุณได้เลยครับ'."\n\n"."\xE2\x98\x9D".' ตัวอย่างเช่น(รหัสพนักงานคือ12345)'."\n\n"."\xE2\x9C\x85".' 12345&คอมพิวเตอร์เปิดไม่ติดครับ,แผนกบัญชีชั้น17,เบอร์โทรศัพท์1888';
 				$messages = [
