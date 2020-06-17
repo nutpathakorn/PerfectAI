@@ -191,6 +191,7 @@ if (!is_null($events['events'])) {
 			$tgreed10 = stripos($ctext, 'ราคาทอง');
 			$tgreed11 = stripos($ctext, 'เจือก');
 			$tgreed12 = stripos($ctext, 'คนดี');
+			$tgreed13 = stripos($ctext, 'อุณหภูมิ');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
@@ -300,7 +301,22 @@ if (!is_null($events['events'])) {
 				];
 				
 			}
-			
+			else if($tgreed13 !== false){
+				
+				
+				$url_temp = 'https://4nfam.com/cloud/getTempSensor';
+			    	$getdetail_temp = file_get_contents($url_temp);
+			    	$events_temp = json_decode($getdetail_temp, true);
+
+			    	$temp_value = $events_temp[0]['value'];
+				
+				$text = 'อุณหภูมิห้อง Server ล่าสุดคือ '.$temp_value.' องศาครับ';
+				$messages = [
+				'type' => 'text',
+				'text' => $text
+				];
+				
+			}
 			else if ($ctext == 'ขอid') {
 			    //$text = 'อยากทำงานแล้วเหรอ';	
 				$text = 'Line UserID ของคุณคือ: '.$event['source']['userId'].' '.$event['source']['groupId'].' '.$event['source']['room'];
