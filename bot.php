@@ -191,7 +191,7 @@ if (!is_null($events['events'])) {
 			$tgreed10 = stripos($ctext, 'ราคาทอง');
 			$tgreed11 = stripos($ctext, 'เจือก');
 			$tgreed12 = stripos($ctext, 'คนดี');
-			$tgreed13 = stripos($ctext, 'อุณหภูมิ');
+			$tgreed13 = stripos($ctext, 'temp');
 
 			if($ctext == 'สวัสดี'){
 				$text = 'สวัสดีครับ ผม PerfectAI เป็นระบบรับแจ้งปัญหาอัตโนมัติครับผม :)';
